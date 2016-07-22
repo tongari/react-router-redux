@@ -12,6 +12,8 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import * as reducers from './reducers'
 import { App, Home, Foo, Bar } from './components'
 
+const isDebug = '{true}'
+
 const reducer = combineReducers({
   ...reducers,
   routing: routerReducer
@@ -23,10 +25,17 @@ const DevTools = createDevTools(
   </DockMonitor>
 )
 
-const store = createStore(
-  reducer,
-  DevTools.instrument()
-)
+const makeStore = ()=>{
+  if(isDebug){
+    return (
+      createStore(reducer,DevTools.instrument())
+    )
+  } else {
+    return createStore(reducer)
+  }
+}
+
+const store = makeStore()
 const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
@@ -39,7 +48,12 @@ ReactDOM.render(
           <Route path="bar" component={Bar}/>
         </Route>
       </Router>
-      <DevTools />
+      { (()=> {
+        if(isDebug){
+          return <DevTools />
+        }
+        })()
+      }
     </div>
   </Provider>,
   document.getElementById('mount')
