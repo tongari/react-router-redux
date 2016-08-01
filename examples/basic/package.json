@@ -22,6 +22,7 @@
     "eslint-config-rackt": "^1.1.1",
     "eslint-plugin-react": "^3.16.1",
     "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "redux-devtools": "^3.1.0",
     "redux-devtools-dock-monitor": "^1.0.1",
@@ -32,6 +33,8 @@
   "scripts": {
     "start": "webpack-dev-server --history-api-fallback --no-info --open",
     "build": "webpack --progress --colors",
-    "prod": "npm run prod"
+    "watch": "webpack --progress --colors --watch",
+    "prod": "gulp prod && npm run build && npm run start",
+    "dev": "gulp dev && npm run start & npm run watch"
   }
 }
