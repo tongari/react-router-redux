@@ -12,7 +12,7 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import * as reducers from './reducers'
 import { App, Home, Foo, Bar } from './components'
 
-const isDebug = true
+const isDebug = false
 
 const reducer = combineReducers({
   ...reducers,

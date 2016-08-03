@@ -11,6 +11,7 @@ gulp.task('prod', ()=> {
 });
 
 gulp.task('dev', ()=> {
+
   return gulp
     .src(['./app.js'])
     .pipe(replace('{debug}', true))

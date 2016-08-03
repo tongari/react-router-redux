@@ -12,7 +12,20 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import * as reducers from './reducers'
 import { App, Home, Foo, Bar } from './components'
 
-const isDebug = {debug}
+let isDebug = false;
+// const isDebug = true;
+
+if(process.env.NODE_ENV === 'dev'){
+  isDebug = true;
+}
+else if(process.env.NODE_ENV === 'prod'){
+  isDebug = false;
+}
+
+console.log('---------------------------------------');
+console.log('process.env.NODE_ENV :',process.env.NODE_ENV);
+console.log('isDebug : ',isDebug);
+console.log('---------------------------------------');
 
 const reducer = combineReducers({
   ...reducers,

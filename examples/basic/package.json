@@ -32,9 +32,10 @@
   },
   "scripts": {
     "start": "webpack-dev-server --history-api-fallback --no-info --open",
-    "build": "webpack --progress --colors",
-    "watch": "webpack --progress --colors --watch",
-    "prod": "gulp prod && npm run build && npm run start",
-    "dev": "gulp dev && npm run start & npm run watch"
+    "stop": "webpack-dev-server --lazy",
+    "build": "NODE_ENV=prod webpack --progress --colors",
+    "watch": "NODE_ENV=dev webpack --progress --colors --watch",
+    "prod": "npm run build && npm run start",
+    "dev": "npm run start & npm run watch"
   }
 }
