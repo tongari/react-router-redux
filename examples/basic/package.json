@@ -31,11 +31,11 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --history-api-fallback --no-info --open",
+    "start": "webpack-dev-server --history-api-fallback --no-info --open --port 2345",
     "stop": "webpack-dev-server --lazy",
-    "build": "NODE_ENV=prod webpack --progress --colors",
-    "watch": "NODE_ENV=dev webpack --progress --colors --watch",
-    "prod": "npm run build && npm run start",
-    "dev": "npm run start & npm run watch"
+    "build": "webpack --progress --colors",
+    "watch": "webpack --progress --colors --watch",
+    "prod": "npm run build && NODE_ENV=false npm run start",
+    "dev": "NODE_ENV=true npm run start & npm run watch"
   }
 }

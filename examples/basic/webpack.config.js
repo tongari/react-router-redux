@@ -14,13 +14,13 @@ module.exports = {
       loader: 'babel',
       exclude: /node_modules/,
       include: __dirname
-    }],
-    plugins: [
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-      })
-    ]
-  }
+    }]
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': process.env.NODE_ENV
+    })
+  ]
 }
 
 
