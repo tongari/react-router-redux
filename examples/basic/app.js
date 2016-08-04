@@ -26,13 +26,8 @@ const DevTools = createDevTools(
 )
 
 const makeStore = ()=>{
-  if(isDebug){
-    return (
-      createStore(reducer,DevTools.instrument())
-    )
-  } else {
-    return createStore(reducer)
-  }
+  if(isDebug) return createStore( reducer, DevTools.instrument() )
+  else return createStore( reducer )
 }
 
 const store = makeStore()
