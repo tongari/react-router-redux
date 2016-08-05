@@ -10,11 +10,12 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { Provider } from 'react-redux'
 import { createMemoryHistory, match, RouterContext } from 'react-router'
-import { syncHistoryWithStore } from '../../src'
+// import { syncHistoryWithStore } from '../../src'
+import { syncHistoryWithStore } from 'react-router-redux'
 
 import { configureStore } from './store'
 import routes from './routes'
-
+const PORT = 2000;
 const app = express()
 
 app.use(webpackDevMiddleware(webpack(webpackConfig), {
@@ -27,7 +28,7 @@ app.use(webpackDevMiddleware(webpack(webpackConfig), {
 const HTML = ({ content, store }) => (
   <html>
     <body>
-      <div id="root" dangerouslySetInnerHTML={{ __html: content }}/>
+      <div id="app" dangerouslySetInnerHTML={{ __html: content }}/>
       <div id="devtools"/>
       <script dangerouslySetInnerHTML={{ __html: `window.__initialState__=${serialize(store.getState())};` }}/>
       <script src="/__build__/bundle.js"/>
@@ -35,7 +36,7 @@ const HTML = ({ content, store }) => (
   </html>
 )
 
-app.use(function (req, res) {
+app.use((req, res)=> {
   const memoryHistory = createMemoryHistory(req.url)
   const store = configureStore(memoryHistory)
   const history = syncHistoryWithStore(memoryHistory, store)
@@ -57,6 +58,6 @@ app.use(function (req, res) {
   })
 })
 
-app.listen(8080, function () {
-  console.log('Server listening on http://localhost:8080, Ctrl+C to stop')
+app.listen(PORT, ()=> {
+  console.log(`Server listening on http://localhost:${PORT}, Ctrl+C to stop`)
 })

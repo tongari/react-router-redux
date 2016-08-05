@@ -33,6 +33,7 @@
     "webpack-dev-middleware": "^1.5.1"
   },
   "scripts": {
-    "start": "babel-node server.js"
+    "start": "babel-node server.js",
+    "build": "webpack --progress --color"
   }
 }

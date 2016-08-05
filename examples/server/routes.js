@@ -1,5 +1,7 @@
 import React from 'react'
 import { Route, IndexRoute, Link } from 'react-router'
+import Hoge from './containers/Hoge';
+
 
 const App = ({ children }) => (
   <div>
@@ -11,6 +13,8 @@ const App = ({ children }) => (
       <Link to="/foo">Foo</Link>
       {' '}
       <Link to="/bar">Bar</Link>
+      {' '}
+      <Link to="/hoge">Hoge</Link>
     </header>
     {children}
   </div>
@@ -25,6 +29,7 @@ const routes = (
     <IndexRoute component={Home}/>
     <Route path="foo" component={Foo}/>
     <Route path="bar" component={Bar}/>
+    <Route path="hoge" component={Hoge}/>
   </Route>
 )
 
