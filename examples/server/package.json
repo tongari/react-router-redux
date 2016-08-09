@@ -4,6 +4,7 @@
   "repository": "reactjs/react-router-redux",
   "license": "MIT",
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.3.0",
@@ -34,6 +35,8 @@
   },
   "scripts": {
     "start": "babel-node server.js",
-    "build": "webpack --progress --color"
+    "build": "webpack --progress --color",
+    "watch": "webpack --progress --color --watch",
+    "dev": "npm run start & npm run watch"
   }
 }
