@@ -31,6 +31,9 @@ app.use(webpackDevMiddleware(webpack(webpackConfig), {
 
 const HTML = ({ content, store }) => (
   <html>
+    <head>
+      <link rel='stylesheet' href='/__build__/app.css'/>
+    </head>
     <body>
       <div id="app" dangerouslySetInnerHTML={{ __html: content }}/>
       <div id="devtools"/>

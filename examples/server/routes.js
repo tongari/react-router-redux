@@ -1,24 +1,24 @@
 import React from 'react'
 import { Route, IndexRoute, Link } from 'react-router'
+import App from './containers/App';
 import Hoge from './containers/Hoge';
 
-
-const App = ({ children }) => (
-  <div>
-    <header>
-      Links:
-      {' '}
-      <Link to="/">Home</Link>
-      {' '}
-      <Link to="/foo">Foo</Link>
-      {' '}
-      <Link to="/bar">Bar</Link>
-      {' '}
-      <Link to="/hoge">Hoge</Link>
-    </header>
-    {children}
-  </div>
-)
+// const App = ({ children }) => (
+//   <div>
+//     <header>
+//       Links:
+//       {' '}
+//       <Link to="/">Home</Link>
+//       {' '}
+//       <Link to="/foo">Foo</Link>
+//       {' '}
+//       <Link to="/bar">Bar</Link>
+//       {' '}
+//       <Link to="/hoge">Hoge</Link>
+//     </header>
+//     {children}
+//   </div>
+// )
 
 const Home = () => (<div>Home!</div>)
 const Foo = () => (<div>Foo!</div>)

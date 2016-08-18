@@ -15,7 +15,7 @@ const hoge = () => {
           return response.json();
         }).then( res => {
         resolve(res)
-      }).catch(function(ex) {
+      }).catch((ex)=>{
         reject(ex);
       });
   });

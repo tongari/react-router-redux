@@ -4,38 +4,21 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import facade from '../domain/api/facade'
 import * as actions from '../action';
+import Common from './Common';
 
-export default class Hoge extends React.Component {
+export default class Hoge extends Common {
 
-  componentDidMount(){
-    console.log('componentDidMount');
+  constructor() {
+    super();
   }
 
   render() {
-
-    const { store, actions } = this.props;
-
-    if(!store.apiData){
-      facade( store.routing.locationBeforeTransitions.pathname )
-        .then( response =>{
-
-          let data = response ? response : '';
-          setTimeout(()=> {actions.getApiDataSuccess(data)},500);
-
-        }).catch(e =>{
-        console.log(e);
-      });
-    }
-
-    const hide = {
-      display: 'none'
-    }
-    const show = {
-      display: 'block'
-    }
+    super.render();
+    const { store } = this.props;
 
     return (
-      <div style={store.apiData ? show : hide}>
+
+      <div style={store.apiData ? this.show : this.hide}>
         <p>hogehoge</p>
         <p>{store.routing.locationBeforeTransitions.pathname}</p>
         <p>{store.apiData.regionCode}</p>
