@@ -14,7 +14,7 @@ const store = configureStore(browserHistory, window.__initialState__)
 const history = syncHistoryWithStore(browserHistory, store)
 
 const onUpdate = () => {
-  console.log('onUpdate');
+  // console.log('onUpdate : ',store.getState().routing.locationBeforeTransitions.pathname);
 }
 
 render(

@@ -52,9 +52,9 @@ app.get('*', function (req, res, next) {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search)
     } else if (renderProps) {
 
-      console.log( '--------------------' );
-      console.log( renderProps.location.pathname );
-      console.log( '--------------------' );
+      // console.log( '--------------------' );
+      // console.log( renderProps.location.pathname );
+      // console.log( '--------------------' );
 
       facade( renderProps.location.pathname )
         .then( response =>{

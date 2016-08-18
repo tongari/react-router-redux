@@ -16,7 +16,7 @@ export const DevTools = createDevTools(
   </DockMonitor>
 )
 
-export const apiData = (state = {}, action) => {
+export const apiData = (state ={}, action) => {
   switch (action.type) {
     case API_SUCCESS:
       return action.apiData;
